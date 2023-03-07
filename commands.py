@@ -9,6 +9,9 @@ def console():
      if inp == "coin.create table":
          create_table()
 
+     if inp == "coin.show tables":
+         show_tables()
+
      if inp == "coin.view table":
          view_table()
 
