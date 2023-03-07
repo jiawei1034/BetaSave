@@ -6,11 +6,10 @@ cursor = connection.cursor()
 
 def create_table():
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS Received (
+    CREATE TABLE IF NOT EXISTS Salary (
         table_id INTEGER,
         date_received TEXT,
-        details TEXT,
-        amount_received TEXT
+        amount_earned TEXT
     )
     """)
     connection.commit()
@@ -19,16 +18,15 @@ def create_table():
 def insert_income():
     table_id = input("ID: ")
     date_received = input("DATE: ")
-    details = input("DETAILS: ")
-    amount_received = input("AMOUNT: ")
-    cursor.execute("INSERT INTO Received VALUES (?, ?, ?, ?)",(table_id, date_received, details, amount_received)
+    amount_earned = input("AMOUNT: ")
+    cursor.execute("INSERT INTO Salary VALUES (?, ?, ?)",(table_id, date_received, amount_earned)
     )
     connection.commit()
     print("Record inserted successfully ")
 
 def view_table():
     cursor.execute("""
-    SELECT * FROM Received
+    SELECT * FROM Salary
     """)
     connection.commit()
     rows = cursor.fetchall()

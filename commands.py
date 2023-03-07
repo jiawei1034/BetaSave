@@ -3,7 +3,7 @@ from functions import *
 def console():
      inp = input("User>")
 
-     if inp == "coin.insert income":
+     if inp == "coin.insert amount":
          insert_income()
 
      if inp == "coin.create table":
