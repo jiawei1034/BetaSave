@@ -26,5 +26,4 @@ def console():
 # graph if possible
 #error
 #pytest
-#github
 #account, password
