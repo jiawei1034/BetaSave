@@ -24,6 +24,12 @@ def console():
      if inp == "coin.help":
          show_options()
 
+     if inp == "":
+         return console()
+     
+     if inp == "Table created successfully " or "Record inserted successfully " or "Record deleted successfully ":
+         return console()
+
      else:
          print("Command not found")
          print("For information on commands type coin.help \n")
