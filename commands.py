@@ -3,27 +3,30 @@ from functions import *
 def console():
      inp = input("User>")
 
-     if inp == "coin.insert amount":
+     if inp == "coin.enter_income":
          insert_income()
 
-     if inp == "coin.create table":
+     if inp == "coin.create_table":
          create_table()
 
-     if inp == "coin.show tables":
+     if inp == "coin.show_tables":
          show_tables()
 
-     if inp == "coin.view table":
+     if inp == "coin.view_table":
          view_table()
 
-     if inp == "coin.delete table":
+     if inp == "coin.delete_record":
           delete_row()
 
      if inp == "coin.exit":
          exit()
 
-#help - commands
+     if inp == "coin.help":
+         show_options()
+
+     else:
+         print("Command not found")
+         print("For information on commands type coin.help \n")
+
 #calculation
 # graph if possible
-#error
-#pytest
-#account, password
