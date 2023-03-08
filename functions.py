@@ -1,6 +1,6 @@
 import sqlite3
 
-connection = sqlite3.connect("mydata.db")
+connection = sqlite3.connect("Db/mydata.db")
 
 cursor = connection.cursor()
 
@@ -57,6 +57,7 @@ def show_tables():
     print("11)November")
     print("12)December \n")
 
-
-
-
+def show_options():
+    f = open('readme.txt', 'r') 
+    file_contents = f.read()
+    print(file_contents)
