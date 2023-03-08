@@ -8,7 +8,7 @@ def create_table():
     table_name = input("TABLE: ")
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS {} (
-        table_id INTEGER,
+        table_id TEXT,
         date_received TEXT,
         amount_earned TEXT
     )
@@ -23,7 +23,7 @@ def insert_income():
     amount_earned = input("AMOUNT: ")
     cursor.execute("INSERT INTO {} VALUES (?, ?, ?)".format(table_name),(table_id, date_received, amount_earned)
     )
-    connection.commit()
+    connection.commit() 
     print("Record inserted successfully ")
 
 def view_table():
@@ -33,8 +33,11 @@ def view_table():
     """.format(table_name))
     connection.commit()
     rows = cursor.fetchall()
-    print(rows)
-    
+    heading = ['ID', 'Name', 'City']
+    print(f'{heading[0]: <10}{heading[1]: <10}{heading[2]: <10}')
+    for i in rows:
+        print(f'{rows[0]: <10}{rows[1]: <10}{rows[2]: <10}')
+
 def delete_row():
     table_name = input("TABLE: ")
     table__id = input("ID: ")
@@ -44,20 +47,27 @@ def delete_row():
     print("Record deleted successfully ")
 
 def show_tables():
-    print("1)January")
-    print("2)February")
-    print("3)March")
-    print("4)April")
-    print("5)May")
-    print("6)June")
-    print("7)July")
-    print("8)August")
-    print("9)September")
-    print("10)October")
-    print("11)November")
-    print("12)December \n")
+    # print("1)January")
+    # print("2)February")
+    # print("3)March")
+    # print("4)April")
+    # print("5)May")
+    # print("6)June")
+    # print("7)July")
+    # print("8)August")
+    # print("9)September")
+    # print("10)October")
+    # print("11)November")
+    # print("12)December \n")
+    cursor.execute("""SELECT name FROM sqlite_master
+    WHERE type='table';""")
+    connection.commit()
+    tables = cursor.fetchall()
+    print(tables)
 
 def show_options():
     f = open('readme.txt', 'r') 
     file_contents = f.read()
     print(file_contents)
+
+
